@@ -1,0 +1,886 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leonardo Jost | Marketing, Conteúdo & Estratégia</title>
+
+    <meta
+        name="description"
+        content="Leonardo Jost — Marketing, conteúdo e estratégia para transformar presença digital em oportunidade e negócio."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --bg: #080808;
+            --bg-soft: #111111;
+            --card: #151515;
+            --text: #f5f5f5;
+            --muted: #9b9b9b;
+            --accent: #b7ff3c;
+            --border: rgba(255,255,255,0.09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            background: rgba(8,8,8,0.75);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Manrope", sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            color: #ccc;
+            font-size: .95rem;
+        }
+
+        .nav-links a {
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-button {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: .9rem;
+            transition: .25s;
+        }
+
+        .nav-button:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 76px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            filter: blur(180px);
+            opacity: .08;
+            right: -150px;
+            top: 100px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 30px;
+            color: var(--muted);
+            font-size: .85rem;
+            margin-bottom: 25px;
+        }
+
+        .tag::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(3.2rem, 7vw, 6.5rem);
+            line-height: .98;
+            letter-spacing: -4px;
+            margin-bottom: 28px;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: var(--muted);
+            font-size: 1.15rem;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(183,255,60,.15);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--border);
+            color: #ddd;
+        }
+
+        .button-secondary:hover {
+            border-color: #555;
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-label {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .75rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-highlight {
+            border-left: 2px solid var(--accent);
+            padding-left: 25px;
+        }
+
+        .about-highlight strong {
+            font-size: 1.5rem;
+            font-family: "Manrope", sans-serif;
+        }
+
+        /* SERVICES */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(183,255,60,.3);
+        }
+
+        .card-number {
+            color: var(--accent);
+            font-size: .8rem;
+            margin-bottom: 35px;
+        }
+
+        .card h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: .95rem;
+        }
+
+        /* PORTFOLIO */
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            min-height: 320px;
+            background: linear-gradient(135deg, #1b1b1b, #101010);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: .3s;
+        }
+
+        .project:hover {
+            transform: scale(1.015);
+        }
+
+        .project small {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .project h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.7rem;
+        }
+
+        .project p {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* COURSES */
+
+        .courses {
+            background: var(--bg-soft);
+        }
+
+        .course-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 18px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .course-card p {
+            color: var(--muted);
+            max-width: 650px;
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            padding: 140px 0;
+        }
+
+        .cta h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1;
+            letter-spacing: -3px;
+            max-width: 850px;
+            margin: 0 auto 25px;
+        }
+
+        .cta p {
+            color: var(--muted);
+            max-width: 550px;
+            margin: 0 auto 35px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 35px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        footer p {
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+            color: #ccc;
+            font-size: .9rem;
+        }
+
+        .socials a:hover {
+            color: var(--accent);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-card {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+
+            <a href="#" class="logo">
+                LEONARDO <span>JOST.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Trabalhos</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+            </ul>
+
+            <a href="#contato" class="nav-button">
+                Vamos conversar
+            </a>
+
+        </nav>
+    </div>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="tag">
+                    Marketing • Conteúdo • Estratégia
+                </div>
+
+                <h1>
+                    Marketing que transforma
+                    <span>atenção em negócio.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Eu sou Leonardo Jost. Trabalho com marketing,
+                    conteúdo e estratégia para ajudar projetos e marcas
+                    a construírem uma presença digital mais forte,
+                    estratégica e profissional.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#servicos" class="button button-primary">
+                        Quero trabalhar com você
+                    </a>
+
+                    <a href="#cursos" class="button button-secondary">
+                        Quero aprender
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE -->
+
+    <section id="sobre">
+
+        <div class="container">
+
+            <div class="section-label">
+                01 — Sobre mim
+            </div>
+
+            <div class="about-grid">
+
+                <div>
+
+                    <h2 class="section-title">
+                        Não é só sobre postar.
+                        É sobre fazer negócio.
+                    </h2>
+
+                </div>
+
+                <div class="about-text">
+
+                    <p>
+                        Eu sou Leo, criador e estrategista de marketing.
+                        Meu objetivo é transformar ideias em projetos
+                        com presença digital, identidade e estratégia.
+                    </p>
+
+                    <p>
+                        Aqui você encontra meus serviços, projetos,
+                        conhecimentos e treinamentos para quem quer
+                        crescer no digital.
+                    </p>
+
+                    <div class="about-highlight">
+
+                        <strong>
+                            Estratégia antes de conteúdo.
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVIÇOS -->
+
+    <section id="servicos">
+
+        <div class="container">
+
+            <div class="section-label">
+                02 — Serviços
+            </div>
+
+            <h2 class="section-title">
+                Como posso ajudar sua marca?
+            </h2>
+
+            <div class="services-grid">
+
+                <div class="card">
+
+                    <div class="card-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Social Media
+                    </h3>
+
+                    <p>
+                        Estratégia, planejamento e produção de conteúdo
+                        para transformar suas redes sociais em um canal
+                        de crescimento.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Estratégia
+                    </h3>
+
+                    <p>
+                        Posicionamento, conteúdo e direção estratégica
+                        para marcas e projetos que querem crescer
+                        no digital.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Mentoria
+                    </h3>
+
+                    <p>
+                        Orientação para quem quer aprender marketing,
+                        conteúdo e estratégias para desenvolver
+                        projetos no ambiente digital.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFÓLIO -->
+
+    <section id="portfolio">
+
+        <div class="container">
+
+            <div class="section-label">
+                03 — Trabalhos
+            </div>
+
+            <h2 class="section-title">
+                Projetos que estou construindo.
+            </h2>
+
+            <div class="portfolio-grid">
+
+                <article class="project">
+
+                    <small>
+                        PROJETO 01
+                    </small>
+
+                    <h3>
+                        Mundo do Leo
+                    </h3>
+
+                    <p>
+                        Projeto pessoal voltado para criatividade,
+                        conteúdo, empreendedorismo e construção
+                        de presença digital.
+                    </p>
+
+                </article>
+
+
+                <article class="project">
+
+                    <small>
+                        PROJETO 02
+                    </small>
+
+                    <h3>
+                        Dog Walker
+                    </h3>
+
+                    <p>
+                        Projeto em desenvolvimento com foco em
+                        passeios com cães, organização do serviço
+                        e experiência para clientes.
+                    </p>
+
+                </article>
+
+
+                <article class="project">
+
+                    <small>
+                        PROJETO 03
+                    </small>
+
+                    <h3>
+                        Projeto de Social Media
+                    </h3>
+
+                    <p>
+                        Projeto focado em planejamento, criação
+                        de conteúdo e estratégias para redes sociais.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CURSOS -->
+
+    <section id="cursos" class="courses">
+
+        <div class="container">
+
+            <div class="section-label">
+                04 — Educação
+            </div>
+
+            <h2 class="section-title">
+                Quer aprender em vez de contratar?
+            </h2>
+
+
+            <div class="course-card">
+
+                <div>
+
+                    <h3>
+                        Investindo com Sabedoria (Iniciante)
+                    </h3>
+
+                    <p>
+                        Investir com sabedoria é transformar cada real
+                        em oportunidade. Descubra o básico necessário
+                        para fazer escolhas seguras, planejar com
+                        inteligência e alcançar seus objetivos
+                        financeiros de forma consistente e estratégica.
+                    </p>
+
+                </div>
+
+                <a
+                    href="https://pay.kiwify.com.br/5hhSJF9"
+                    target="_blank"
+                    class="button button-primary"
+                >
+                    Conhecer curso →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section id="contato" class="cta">
+
+        <div class="container">
+
+            <div class="section-label">
+                05 — Vamos conversar
+            </div>
+
+            <h2>
+                Sua marca pode estar fazendo mais no digital.
+            </h2>
+
+            <p>
+                Se você quer melhorar sua presença digital,
+                desenvolver um projeto ou aprender marketing
+                de verdade, vamos conversar.
+            </p>
+
+            <div
+                class="buttons"
+                style="justify-content:center;"
+            >
+
+                <a
+                    href="https://instagram.com/jost.leozin"
+                    target="_blank"
+                    class="button button-primary"
+                >
+                    Falar comigo no Instagram
+                </a>
+
+                <a
+                    href="https://wa.me/5551997141188"
+                    target="_blank"
+                    class="button button-secondary"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <p>
+                © 2026 Leonardo Jost. Todos os direitos reservados.
+            </p>
+
+            <div class="socials">
+
+                <a
+                    href="https://instagram.com/jost.leozin"
+                    target="_blank"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="https://www.youtube.com/@jost.leozin"
+                    target="_blank"
+                >
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
+```
